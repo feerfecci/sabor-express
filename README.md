@@ -1,103 +1,111 @@
-# sabor-express
-Projeto desenvolvido junto ao curso de Python aplicando a Orientação a Objetos, da Alura, colocando em prática conceitos fundamentais de POO. A aplicação permite cadastrar restaurantes, gerenciar seu status de funcionamento e registrar avaliações, calculando a média das notas recebidas.  
+# Sabor Express — Gerenciamento de Restaurantes com Python
+Projeto desenvolvido junto ao curso de Python aplicando a Orientação a Objetos, da Alura, colocando em prática conceitos fundamentais de POO. A aplicação permite cadastrar restaurantes, gerenciar seu status de funcionamento e registrar avaliações, calculando a média das notas recebidas.
 
+## Sobre o Projeto
 
-Sabor Express — Gerenciamento de Restaurantes com Python
-Projeto desenvolvido durante o curso de Orientação a Objetos com Python da Alura, com o objetivo de aplicar os principais conceitos de Programação Orientada a Objetos (POO) na construção de uma aplicação para gerenciamento de restaurantes e avaliações.
+O **Sabor Express** permite cadastrar restaurantes, acompanhar seu status de funcionamento e registrar avaliações de clientes, calculando automaticamente a média das notas recebidas.
 
-Sobre o Projeto
-O Sabor Express permite representar restaurantes por meio de classes em Python, acompanhar seu status de funcionamento e registrar avaliações realizadas por clientes.
+A aplicação utiliza uma estrutura modular, separando as classes de restaurantes e avaliações para favorecer a organização, a reutilização e a manutenção do código.
 
-A aplicação utiliza uma estrutura modular, separando a regra de negócio dos restaurantes da implementação das avaliações para garantir manutenibilidade e boa organização do código.
+## Funcionalidades
 
-Funcionalidades
-Cadastro de restaurantes: registro por nome e categoria.
+- **Cadastro de restaurantes:** registro por nome e categoria.
+- **Listagem de restaurantes:** exibição dos estabelecimentos, suas categorias, médias de avaliações e status.
+- **Gestão de status:** ativação e desativação do funcionamento dos restaurantes.
+- **Registro de avaliações:** inclusão de notas atribuídas por clientes, com validação dos valores permitidos.
+- **Cálculo de médias:** cálculo automático da média das avaliações de cada restaurante.
 
-Listagem de estabelecimentos: exibição dos restaurantes cadastrados no sistema.
+## Tecnologias Utilizadas
 
-Gestão de status: ativação e desativação do funcionamento de restaurantes.
+- **Linguagem:** Python 3
+- **Paradigma:** Programação Orientada a Objetos (POO)
+- **Versionamento:** Git e GitHub
 
-Registro de avaliações: inclusão de notas e comentários de clientes com validação.
+## Conceitos Praticados
 
-Métricas: cálculo automatizado da média de avaliações por restaurante.
+Durante o desenvolvimento, foram aplicados os seguintes conceitos:
 
-Tecnologias Utilizadas
-Linguagem: Python 3
+- **Classes e Objetos:** representação dos restaurantes e das avaliações.
+- **Método Construtor (`__init__`):** inicialização dos atributos dos objetos.
+- **Encapsulamento:** utilização de atributos com convenção de acesso não público, como `_name`, `_active` e `_evaluations`.
+- **Métodos de Instância:** implementação dos comportamentos e das regras de negócio dos restaurantes.
+- **Propriedades (`@property`):** acesso ao status de funcionamento e à média das avaliações.
+- **Métodos de Classe (`@classmethod`):** listagem dos restaurantes cadastrados na classe.
+- **Composição:** associação entre restaurantes e suas respectivas avaliações.
+- **Modularização:** separação das classes em arquivos distintos.
 
-Paradigma: Programação Orientada a Objetos (POO)
+## Estrutura do Projeto
 
-Versionamento: Git e GitHub
-
-Conceitos Praticados
-Durante o desenvolvimento, foram aplicados os seguintes fundamentos de POO e engenharia de software:
-
-Classes e Objetos: abstração do domínio de restaurantes e avaliações.
-
-Método Construtor (__init__): inicialização dos atributos dos objetos.
-
-Encapsulamento: proteção de atributos com convenção de acesso privado/protegido (_nome, _ativo, _avaliacoes).
-
-Métodos de Instância: implementação das regras de negócio de cada restaurante.
-
-Propriedades (@property): controle de acesso e formatação para o status e média de notas.
-
-Métodos de Classe (@classmethod): manipulação e consulta global dos restaurantes da classe.
-
-Composição: associação entre a classe restaurante e suas respectivas avaliações.
-
-Modularização: separação de responsabilidades em arquivos e pacotes distintos.
-
-Estrutura do Projeto
-Plaintext
+```text
 sabor-express/
 ├── models/
 │   ├── __init__.py
 │   ├── restaurant.py
-│   └── evaluation.py
+│   └── avaluation.py
 ├── app.py
 └── README.md
-Nota: Ajuste os nomes de diretórios e arquivos conforme a estrutura exata do seu repositório.
+```
 
-Como Executar
-Pré-requisitos
-Python 3 instalado na máquina.
+> **Nota:** A estrutura acima é ilustrativa. Ajuste os nomes dos arquivos conforme a estrutura real do repositório. No código atual, o módulo de avaliações utiliza o nome `avaluation.py`.
 
-Git (opcional, para clonagem).
+## Como Executar
 
-Instruções
-Clone o repositório:
+### Pré-requisitos
 
-Bash
-git clone URL_DO_REPOSITORIO
-Acesse a pasta do projeto:
+- Python 3 instalado na máquina.
+- Git instalado, caso deseje clonar o repositório.
 
-Bash
-cd sabor-express
-Execute a aplicação:
+### Instruções
 
-Bash
-python app.py
-No Windows, você também pode usar py app.py.
+1. Clone o repositório:
 
-Exemplo de Uso
-Exemplo de instanciação de restaurantes e registro de avaliações no código:
+   ```bash
+   git clone URL_DO_REPOSITORIO
+   ```
 
-Python
+2. Acesse a pasta do projeto:
+
+   ```bash
+   cd sabor-express
+   ```
+
+3. Execute a aplicação:
+
+   ```bash
+   python app.py
+   ```
+
+   No Windows, também é possível utilizar:
+
+   ```bash
+   py app.py
+   ```
+
+> **Importante:** Substitua `URL_DO_REPOSITORIO` pelo endereço real do repositório e utilize o nome correto do arquivo principal.
+
+## Exemplo de Uso
+
+Exemplo de criação de restaurantes, registro de avaliações e alteração do status de funcionamento:
+
+```python
 from models.restaurant import Restaurant
 
-# Criando uma nova instância
+# Criando um restaurante
 restaurante_praca = Restaurant("Praça", "Gourmet")
 
 # Registrando avaliações
-restaurante_praca.receive_evaluation("Gui", 5)
-restaurante_praca.receive_evaluation("Fe", 4)
+restaurante_praca.get_avaluation("Gui", 5)
+restaurante_praca.get_avaluation("Fe", 4)
 
 # Alterando o status de funcionamento
-restaurante_praca.toggle_status()
+restaurante_praca.update_status()
 
-# Exibindo a lista consolidada
+# Listando os restaurantes cadastrados
 Restaurant.list_restaurants()
-Objetivo do Projeto
-Este repositório consolida o aprendizado prático da sintaxe e dos pilares de Programação Orientada a Objetos em Python, focando na escrita de código limpo, reutilizável e coeso.
+```
 
-Status: Projeto finalizado (Curso de POO — Alura)
+## Objetivo do Projeto
+
+Este projeto consolida o aprendizado prático de Programação Orientada a Objetos em Python, com foco na organização do código, na separação de responsabilidades e na construção de uma aplicação baseada em classes e objetos.
+
+**Status:** Projeto de aprendizado desenvolvido durante o curso de Orientação a Objetos com Python da Alura.
